@@ -1,0 +1,64 @@
+<Window x:Class="WpfApp.OrderEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Заказ" Height="380" Width="450"
+        WindowStartupLocation="CenterOwner"
+        Background="#FFFFFF"
+        FontFamily="Times New Roman">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Информация о заказе" FontSize="20" FontWeight="Bold"
+                   Margin="0,0,0,15" Foreground="#333333" FontFamily="Times New Roman"/>
+
+        <!-- Артикул (только для чтения) -->
+        <TextBlock Grid.Row="1" Text="Артикул:" Margin="0,5,0,2" FontFamily="Times New Roman"/>
+        <TextBlock Grid.Row="2" x:Name="ArticleTextBlock" Text="" Margin="0,0,0,10"
+                   FontSize="14" FontWeight="SemiBold" FontFamily="Times New Roman"/>
+
+        <!-- Статус заказа -->
+        <TextBlock Grid.Row="3" Text="Статус заказа:" Margin="0,5,0,2" FontFamily="Times New Roman"/>
+        <ComboBox Grid.Row="4" x:Name="StatusComboBox" Height="30" Margin="0,0,0,10"
+                  FontFamily="Times New Roman">
+            <ComboBoxItem Content="Новый"/>
+            <ComboBoxItem Content="Завершен"/>
+        </ComboBox>
+
+        <!-- Адрес пункта выдачи -->
+        <TextBlock Grid.Row="5" Text="Адрес пункта выдачи:" Margin="0,5,0,2" FontFamily="Times New Roman"/>
+        <ComboBox Grid.Row="6" x:Name="PickupPointComboBox" Height="30" Margin="0,0,0,10"
+                  DisplayMemberPath="Address" FontFamily="Times New Roman"/>
+
+        <!-- Дата заказа -->
+        <TextBlock Grid.Row="7" Text="Дата заказа:" Margin="0,5,0,2" FontFamily="Times New Roman"/>
+        <DatePicker Grid.Row="8" x:Name="OrderDatePicker" Height="30" Margin="0,0,0,10"
+                    FontFamily="Times New Roman"/>
+
+        <!-- Дата выдачи -->
+        <TextBlock Grid.Row="9" Text="Дата выдачи:" Margin="0,5,0,2" FontFamily="Times New Roman"/>
+        <DatePicker Grid.Row="10" x:Name="DeliveryDatePicker" Height="30" Margin="0,0,0,15"
+                    FontFamily="Times New Roman"/>
+
+        <!-- Кнопки -->
+        <StackPanel Grid.Row="11" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+            <Button x:Name="CancelButton" Content="Отмена" Width="110" Height="32"
+                    Margin="0,0,10,0" Background="#E0E0E0" Foreground="#333333"
+                    BorderThickness="1" Cursor="Hand" Click="CancelButton_Click"
+                    FontFamily="Times New Roman"/>
+            <Button x:Name="SaveButton" Content="Сохранить" Width="110" Height="32"
+                    Background="#00FA9A" Foreground="#333333" BorderThickness="1"
+                    Cursor="Hand" Click="SaveButton_Click" FontFamily="Times New Roman"/>
+        </StackPanel>
+    </Grid>
+</Window>
